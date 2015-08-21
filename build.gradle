@@ -1,0 +1,42 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.3.RELEASE")
+    }
+}
+
+apply plugin: 'groovy'
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+apply plugin: 'war'
+
+war {
+    baseName = 'custom-repo'
+    version = '0.1'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+dependencies {
+
+    compile 'org.springframework.boot:spring-boot-starter-web:1.2.3.RELEASE'
+
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa:1.2.3.RELEASE'
+
+    compile 'org.codehaus.groovy:groovy-all:2.4.3'
+
+    providedRuntime 'org.apache.tomcat.embed:tomcat-embed-jasper'
+
+    providedRuntime 'javax.servlet:jstl'
+
+    compile 'com.h2database:h2:1.4.187'
+
+}
